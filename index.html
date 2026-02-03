@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hong Lam | Archive Interface</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700;900&family=VT323&family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --echo-orange: #FF5722;
+            --echo-bg: #E8E6D9;
+            --echo-dark: #121212;
+        }
+        body { 
+            font-family: 'Space Grotesk', 'Noto Sans TC', sans-serif; 
+            background: var(--echo-dark); 
+            color: var(--echo-dark);
+            margin: 0;
+            padding: 0;
+        }
+        .font-mono-retro { font-family: 'VT323', monospace; }
+        
+        /* 檔案背景網格 */
+        .archive-grid {
+            background-color: #E8E6D9;
+            background-image: 
+                linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        /* 掃描線效果 (受控制顯隱) */
+        .scanlines { position: relative; }
+        .scanline-overlay::before {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%);
+            z-index: 50;
+            background-size: 100% 4px;
+            pointer-events: none;
+        }
+
+        /* 野獸派按鈕陰影 */
+        .brutalist-card {
+            border: 3px solid var(--echo-dark);
+            box-shadow: 6px 6px 0px var(--echo-dark);
+        }
+        .brutalist-button-active {
+            border: 3px solid var(--echo-dark);
+            background: white;
+            box-shadow: 6px 6px 0px var(--echo-orange);
+            transform: translate(-2px, -2px);
+        }
+
+        .custom-scrollbar::-webkit-scrollbar { width: 8px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #121212; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: var(--echo-orange); }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.39.0"
+  }
+}
+</script>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+</html>
